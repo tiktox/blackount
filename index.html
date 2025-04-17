@@ -219,8 +219,8 @@
         <div class="container footer-content">
             <div class="footer-column">
                 <h4 class="footer-title">Blackount</h4>
-                <p>Una plataforma dedicada a investigar y prevenir estafas en línea y en persona.</p>
-            </div>
+                <p>Una plataforma innovadora especializada en la investigación, denuncia y prevención de estafas en línea y presenciales. Nuestro objetivo principal es proteger a la comunidad mediante la exposición pública de estafadores, cuentas bancarias fraudulentas, perfiles sospechosos y métodos comunes de engaño, utilizando evidencia visual como capturas de pantalla, números telefónicos, direcciones IP y enlaces relacionados.</p>
+                </div>
             <div class="footer-column">
                 <h4 class="footer-title">Enlaces Útiles</h4>
                 <ul class="footer-links">
@@ -627,3 +627,49 @@
     </script>
 </body>
 </html>
+<!-- Welcome Modal -->
+<div class="modal-overlay" id="welcomeModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">¡Bienvenido a Blackount!</h3>
+            <button class="close-modal" id="closeWelcomeModal">×</button>
+        </div>
+        <div class="modal-body">
+            <p>En Blackount trabajamos arduamente para investigar, reportar y prevenir estafas en línea y presenciales, ofreciendo contenido valioso para proteger a nuestra comunidad. Para sostener este esfuerzo, nuestra plataforma incluye anuncios publicitarios.</p>
+            <p>Al continuar navegando, aceptas el uso de anuncios que nos ayudan a mantener este proyecto. Puedes leer más en nuestra <a href="#" target="_blank">Política de Privacidad</a>.</p>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="acceptWelcome">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+     // Welcome Modal Logic
+     function showWelcomeModal() {
+        const hasSeenModal = localStorage.getItem('welcomeModalSeen');
+        if (!hasSeenModal) {
+            welcomeModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Close welcome modal on button click
+    closeWelcomeModal.addEventListener('click', () => {
+        welcomeModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        localStorage.setItem('welcomeModalSeen', 'true');
+    });
+
+    // Close welcome modal on accept button click
+    acceptWelcome.addEventListener('click', () => {
+        welcomeModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        localStorage.setItem('welcomeModalSeen', 'true');
+    });
+
+    // Initialize posts and welcome modal on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        generatePosts();
+        showWelcomeModal();
+    });
+</script>
