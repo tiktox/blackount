@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Meta Tags Básicos -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Blackount es una plataforma dedicada a investigar, reportar y prevenir estafas en línea y presenciales. Busca estafadores por nombre, teléfono, cuenta bancaria o redes sociales.">
+<meta name="keywords" content="estafas, fraudes, denuncias, prevención de estafas, estafadores, fraude bancario, fraude en línea, estafa telefónica, suplantación identidad, venta fraudulenta">
+<!-- Meta Tags para Open Graph (Facebook, WhatsApp) -->
+<meta property="og:title" content="Blackount - Plataforma de Prevención de Estafas">
+<meta property="og:description" content="Previene estafas verificando información sobre posibles estafadores. Consulta y reporta fraudes bancarios, telefónicos y en redes sociales.">
+<meta property="og:image" content="https://blackount.com/images/og-image.jpg">
+<meta property="og:url" content="https://blackount.com">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Blackount">
+<meta property="og:locale" content="es_ES">
+<!-- Meta Tags para Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blackount - Protégete contra estafas">
+<meta name="twitter:description" content="Plataforma comunitaria para reportar y prevenir estafas. Verifica antes de confiar.">
+<meta name="twitter:image" content="https://blackount.com/images/twitter-image.jpg">
+<!-- Meta Tags Adicionales -->
+<meta name="author" content="Blackount">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Spanish">
+<meta name="revisit-after" content="7 days">
+<meta name="theme-color" content="#4a90e2"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Blackount",
+  "url": "https://blackount.com",
+  "logo": "https://blackount.com/images/logo.png",
+  "description": "Plataforma dedicada a investigar y prevenir estafas en línea y en persona.",
+  "sameAs": [
+    "https://www.facebook.com/blackount",
+    "https://twitter.com/blackount",
+    "https://www.instagram.com/blackount"
+  ]
+}
+</script>
+
+<!-- WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Blackount",
+  "url": "https://blackount.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://blackount.com/buscar?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- FAQPage para sección de preguntas frecuentes -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo reportar una estafa en Blackount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para reportar una estafa, haz clic en el botón '+' ubicado en la parte inferior derecha de la pantalla. Completa el formulario con los detalles del estafador y la descripción del fraude. Puedes adjuntar evidencias como capturas de pantalla o grabaciones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es confiable la información en Blackount?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La información en Blackount proviene de reportes comunitarios verificados. Cada denuncia pasa por un proceso de revisión antes de ser publicada. Sin embargo, siempre recomendamos contrastar la información con otras fuentes."
+      }
+    }
+  ]
+}
+</script>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackount - Plataforma de Prevención de Estafas</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="header-top">
+                <a href="#" class="logo">Black<span>Ount</span></a>
+            </div>
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar por nombre, número de teléfono, cuenta bancaria, cédula o red social...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">Todos</button>
+                    <button class="filter-btn">Redes Sociales</button>
+                    <button class="filter-btn">Cuentas Bancarias</button>
+                    <button class="filter-btn">Números de Teléfono</button>
+                    <button class="filter-btn">Nombres</button>
+                    <button class="filter-btn">Cédulas</button>
+                    <button class="filter-btn new">
+                        NEW <span class="counter" id="counter">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="ad-banner top-ad">
+        <!-- Código de Adsterra o anuncio integrado -->
+        <script src="https://www.profitableratecpm.com/rw3hyb1tc?key=81e120ff7e52f0fad77f431d06466aee"></script>
+    </div>
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="posts-grid" id="posts-container">
+                <!-- Posts will be generated dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Detalles de la Estafa</h3>
+                <button class="close-modal" id="closeDetailModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalContent">
+                <!-- Content will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+    <div class="ad-banner top-ad">
+        <!-- Código de Adsterra o anuncio integrado -->
+        <script src="https://www.profitableratecpm.com/czavs8g7tt?key=c00a0d2e2875c9810933ee0c8617a0ee"></script>
+    </div>
+    <!-- Report Form Modal -->
+    <div class="modal-overlay" id="reportModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Reportar una Estafa</h3>
+                <button class="close-modal" id="closeReportModal">&times;</button>
+            </div>
+            <div class="form-container">
+                <form id="reportForm">
+                    <div class="form-group">
+                        <label class="form-label">Título de la denuncia</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tipo de estafa</label>
+                        <select class="form-control" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="products">Venta de productos fraudulentos</option>
+                            <option value="social">Suplantación en redes sociales</option>
+                            <option value="banking">Fraude bancario</option>
+                            <option value="phone">Estafa telefónica</option>
+                            <option value="other">Otro tipo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Descripción detallada</label>
+                        <textarea class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Datos del estafador</label>
+                        <div class="form-group">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Número de teléfono</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cuenta bancaria</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Cédula / Documento de identidad</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Redes sociales</label>
+                            <input type="text" class="form-control" placeholder="Usuario de Instagram, Facebook, etc.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Evidencias</label>
+                        <div class="file-upload">
+                            <input type="file" multiple id="evidenceUpload">
+                            <small>Sube capturas de pantalla, notas de voz, recibos, facturas u otras evidencias</small>
+                            <div class="upload-preview" id="uploadPreview">
+                                <!-- Preview will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form-footer">
+                <button class="btn btn-primary" id="submitReport">Enviar Denuncia</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h4 class="footer-title">Blackount</h4>
+                <p>Una plataforma dedicada a investigar y prevenir estafas en línea y en persona.</p>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Enlaces Útiles</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Cómo reportar</a></li>
+                    <li><a href="#">Consejos de seguridad</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Aviso legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Blackount - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Floating Report Button -->
+    <div style="position: fixed; bottom: 30px; right: 30px; z-index: 99;">
+        <button class="btn btn-primary" style="border-radius: 50%; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);" id="openReportBtn">+</button>
+    </div>
+
+    <script>
+        // Sample data for the posts
+        const postsData = [
+            {
+                id: 1,
+                title: "Venta fraudulenta de smartphones",
+                type: "Ventas de productos fraudulentos",
+                risk: "Alto riesgo",
+                phone: "+1 (849) 361-7977",
+                account: "26137040016",
+                name: "Wiltón peña",
+                social: "𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦: @Directo_movill22",
+                image: "https://github.com/tiktox/livenrun/blob/main/essssssss.png?raw=true",
+                description: "El estafador publica productos electrónicos a precios muy bajos, solicita pagos por adelantado y nunca entrega los productos. Ha estafado a más de 20 personas en los últimos 3 meses.",
+                evidence: [
+                    "https://github.com/tiktox/livenrun/blob/main/IMG-20250414-WA0001.jpg?raw=true",
+                    "https://github.com/tiktox/livenrun/blob/main/IMG-20250414-WA0014.jpg?raw=true",
+                    "https://github.com/tiktox/livenrun/blob/main/Nightcony%20(5).png?raw=true"
+                ]
+            },
+            {
+                id: 2,
+                title: "VENTAS DE ELECTRODOMÉSTICOS Y ARTÍCULOS PARA EL HOGAR",
+                type: "Redes sociales",
+                risk: "Alto riesgo",
+                phone: "+1 (809) 212-3310",
+                name: "N/A",
+                social: "𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦: @comercial_la_palmeraa",
+                image: "https://github.com/tiktox/livenrun/blob/main/Nightcony%20(6).png?raw=true",
+                description: "Esta supuesta tienda ofrece productos a través de plataformas digitales y redes sociales, recibe pagos por adelantado, pero no realiza la entrega de los artículos adquiridos ni responde a los intentos de comunicación.",
+                evidence: [
+                    "https://scontent.fsti4-2.fna.fbcdn.net/v/t51.75761-15/477052042_18490222726000031_2282616751481353644_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_aid=0&_nc_eui2=AeEL-jzC1ojo-5dwZ1UE16TDdAnum2_k-HJ0Ce6bb-T4csd2X79v89LBVkiJUK5yd9oqUJJnsIPAzCDK9jZnwX0o&_nc_ohc=QYQ8vUSpFbUQ7kNvwGIIwQN&_nc_oc=AdlPNQ1wcSNOl4tdmtCIp9MjSaWV1pTWulJVzz8MuMm0DBnaelpD6qZXx_p5-OAB0eY&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&_nc_gid=uFL0zXqvDDp404Ri5ofIGg&oh=00_AfGSicWms5vpLs9eUG6kSPk63kvorngOkm70UF9vkMX2UQ&oe=68062F66",
+                ]
+            },
+            {
+                id: 3,
+                title: "Estafa de vehiculos",
+                type: "Cuentas bancarias",
+                risk: "Alto riesgo",
+                phone: "+1 (829) 930-3152",
+                account: "N/A",
+                name: " Francis Javier Williams Nuñez ",
+                cedula: "N/A",
+                image: "https://scontent.fsti4-2.fna.fbcdn.net/v/t39.30808-6/468714615_2834775216702759_4902608399844835218_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHdiFHGYnNhfxsqoRq_3jQAyhCw7OlWK7bKELDs6VYrtiKJ5Kl3BFz3M08iGQBD8lyfvhAlxfeOm4OIOeO4H8cI&_nc_ohc=nIQsgrc1vkAQ7kNvwF_-81S&_nc_oc=AdlA8qEGtB-yLmcNEV3o7U0sGjBDizgeYQjOc07D628XxdXix_Ha4YfGKjPNHxZ6CNs&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&_nc_gid=ohYGjOMaFq_ZldpXdG2yyg&oh=00_AfFUZvqERoVYeiMTyv-BtK7K7K0JZK85HkkJeY8yt01WZg&oe=680635DC",
+                description: "Estafador Haciendose Pasar Por Vendedor De Vehículos",
+                evidence: [
+                    "https://scontent.fsti4-2.fna.fbcdn.net/v/t39.30808-6/468532092_2834775193369428_4128903916991612664_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHVvtREPzlEDoa_H0R_nOzOBR_h9nzMUcgFH-H2fMxRyBwGd98ERrikXgxFLSRrDITjey2pTS_-PE94OLTUu-jx&_nc_ohc=bSzHKbEhbrQQ7kNvwHIylfi&_nc_oc=AdmgYD2Lib2MVO-nj6ZgKo3lmUshl1p6OyFfVbAgd-eR7DnJ4eGGSNC8Cjx5_Yvgmd4&_nc_zt=23&_nc_ht=scontent.fsti4-2.fna&_nc_gid=QfRKZZ1sDQWbQNX_sBPiWQ&oh=00_AfFv9yPxoEg_8avf86lMTtppzmJqtalXpr0QylUjooc1jA&oe=6806459D",
+                    "https://scontent.fsti4-1.fna.fbcdn.net/v/t39.30808-6/468839380_2834775250036089_8015131445174076844_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFuuDLDzHHs6NLR7welokrV3BuyYYAD09ncG7JhgAPT2Vbe4JLGNGF1EtKmyF-0WgfResSBINyjkDASntmjrJhq&_nc_ohc=e3A-wwm-g30Q7kNvwHOF-61&_nc_oc=AdkOK8Xt8hfpE3DUeL6KVM9LLgrAg4ktI_ZaItwFxlAL-Adr2If2Pu8560lJuSJP0Gs&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&_nc_gid=7Jj20DIzvN8mn1xfyG-mFA&oh=00_AfHSfjgMFtSXgryNZ6iZypomt1zNMhvBIXtspuCez1HNbw&oe=68064F3F",
+                ]
+            },
+            {
+                id: 4,
+                title: "Transferencia sin fondos",
+                type: "Ventas de productos fraudulentos",
+                risk: "Alto riesgo",
+                phone: "+1 (809) 901-1136",
+                account: "****4568",
+                name: "Alejandro Arias Ciprian",
+                social: "@winston lara clientes ",
+                image: "https://scontent.fsti4-1.fna.fbcdn.net/v/t39.30808-6/491930881_10236147967579970_369836151577562919_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeEyZGEhl-qRmCo5BmAc_G3JciJwmWK_LcdyInCZYr8txynKVIf7JuXz0Oj8NklHoJYhrPPcBhmCtRL5pOwJm3VO&_nc_ohc=HK5ariBxQvUQ7kNvwHdLoTT&_nc_oc=AdlWQyyMEgU3b08ImLQasNJ2_QtSVYIDv3IW7U1U_STyG-u-ofsT5nMxq9e_oVaDuNk&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&_nc_gid=JewAekv8170ULzayjwTPbw&oh=00_AfH0NsrA0pojfJZ_Rpm3Gu3gxI59z4GzwLGWnNIsIGVhZA&oe=68063802",
+                description: "Te escribe por el Facebook de él para luego bloquearte después de comprar con una transferencia sin fondos",
+                evidence: [
+                    "https://scontent.fsti4-1.fna.fbcdn.net/v/t39.30808-6/491843026_10236147967739974_2225175232879097274_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeFeCJhINs4LnGoTyGHyLJQ54KLriPtK6aDgouuI-0rpoHnHFfmzkhTjJ9JwG-4cCjWEJ51-ger9AGFK0ckefLHD&_nc_ohc=XB59x81aAYUQ7kNvwGNeEIb&_nc_oc=AdkL6UdRV9olDinhjaHj4erxkWEP8zyu1_nzlJPfi9oIKrV3MDhM6viCa9MsrcJ6tU0&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&_nc_gid=JewAekv8170ULzayjwTPbw&oh=00_AfEd_g21SDzoJ2pDO1Rq0QTJJTGIY_ljsYz-TvnxbmILaQ&oe=68063DC6",
+                    "https://scontent.fsti4-1.fna.fbcdn.net/v/t39.30808-6/491958236_10236147967619971_5574746139851222490_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=109&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeETnzNgwst0FN64817dLHKCs4u4J47hn8Wzi7gnjuGfxddAxFizV2w76YtYFewPgxwEx6zpDiEJVAuqHXT2judj&_nc_ohc=BkmPG2XLD_oQ7kNvwH3_N62&_nc_oc=Adkpz0NrRVCaSNZWsJFpyvSmgajvuRwT1ZE2X9aaaXH85fjEFtYAOPFRtg32EmUgcSI&_nc_zt=23&_nc_ht=scontent.fsti4-1.fna&_nc_gid=JewAekv8170ULzayjwTPbw&oh=00_AfFoN0oby4f0H61jcdvVG2xO046mXEOT7JAfy4kpH1N4Vg&oe=680638E2"
+                ]
+            },
+          
+          
+        ];
+
+        // DOM Elements
+        const postsContainer = document.getElementById('posts-container');
+        const detailModal = document.getElementById('detailModal');
+        const modalContent = document.getElementById('modalContent');
+        const closeDetailModal = document.getElementById('closeDetailModal');
+        const reportModal = document.getElementById('reportModal');
+        const closeReportModal = document.getElementById('closeReportModal');
+        const openReportBtn = document.getElementById('openReportBtn');
+        const submitReport = document.getElementById('submitReport');
+        const evidenceUpload = document.getElementById('evidenceUpload');
+        const uploadPreview = document.getElementById('uploadPreview');
+        const counter = document.getElementById('counter');
+
+        // Counter animation for NEW button
+        let count = 0;
+        let countUp = true;
+        
+        setInterval(() => {
+            if (countUp) {
+                count += 1;
+                if (count >= 100) {
+                    countUp = false;
+                }
+            } else {
+                count -= 1;
+                if (count <= 0) {
+                    countUp = true;
+                }
+            }
+            counter.textContent = count;
+        }, 50);
+
+        // Generate posts
+        function generatePosts() {
+            postsContainer.innerHTML = '';
+            
+            postsData.forEach(post => {
+                const postCard = document.createElement('div');
+                postCard.classList.add('post-card');
+                postCard.dataset.id = post.id;
+                
+                postCard.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="post-image">
+                    <div class="post-content">
+                        <h3 class="post-title">${post.title}</h3>
+                        <div class="post-info">
+                            <span class="info-tag">${post.type}</span>
+                            ${post.phone ? `<span class="info-tag">Tel: ${post.phone}</span>` : ''}
+                            ${post.social ? `<span class="info-tag">${post.social}</span>` : ''}
+                        </div>
+                        <span class="risk-tag">${post.risk}</span>
+                    </div>
+                `;
+                
+                postCard.addEventListener('click', () => openDetailModal(post));
+                postsContainer.appendChild(postCard);
+            });
+        }
+
+        // Open detail modal
+        function openDetailModal(post) {
+            modalContent.innerHTML = `
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <img src="${post.image}" alt="${post.title}" style="width: 100%; border-radius: 8px;">
+                    </div>
+                    <div style="flex: 2; min-width: 300px;">
+                        <h2 style="margin-bottom: 1rem; color: var(--primary);">${post.title}</h2>
+                        <span class="risk-tag" style="margin-bottom: 1rem;">${post.risk}</span>
+                        <p style="margin-bottom: 1.5rem; line-height: 1.6;">${post.description}</p>
+                        
+                        <h4 style="margin-bottom: 0.5rem; color: var(--gray-dark);">Información del estafador:</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem;">
+                            ${post.name ? `<li><strong>Nombre:</strong> ${post.name}</li>` : ''}
+                            ${post.phone ? `<li><strong>Teléfono:</strong> ${post.phone}</li>` : ''}
+                            ${post.account ? `<li><strong>Cuenta bancaria:</strong> ${post.account}</li>` : ''}
+                            ${post.cedula ? `<li><strong>Cédula:</strong> ${post.cedula}</li>` : ''}
+                            ${post.social ? `<li><strong>Redes sociales:</strong> ${post.social}</li>` : ''}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="evidence-section">
+                    <h4 style="margin-bottom: 1rem; color: var(--gray-dark);">Evidencias:</h4>
+                    <div class="evidence-grid">
+                        ${post.evidence.map(img => `
+                            <div class="evidence-item">
+                                <img src="${img}" alt="Evidencia">
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            detailModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close detail modal
+        closeDetailModal.addEventListener('click', () => {
+            detailModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Open report modal
+        openReportBtn.addEventListener('click', () => {
+            reportModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Close report modal
+        closeReportModal.addEventListener('click', () => {
+            reportModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Handle evidence upload preview
+        evidenceUpload.addEventListener('change', (e) => {
+            uploadPreview.innerHTML = '';
+            
+            if (e.target.files.length > 0) {
+                Array.from(e.target.files).forEach((file, index) => {
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(event) {
+                            const uploadItem = document.createElement('div');
+                            uploadItem.classList.add('upload-item');
+                            uploadItem.innerHTML = `
+                                <img src="${event.target.result}" alt="Preview">
+                                <button type="button" class="remove-upload" data-index="${index}">&times;</button>
+                            `;
+                            uploadPreview.appendChild(uploadItem);
+                        }
+                        
+                        reader.readAsDataURL(file);
+                    } else {
+                        // For non-image files like audio
+                        const uploadItem = document.createElement('div');
+                        uploadItem.classList.add('upload-item');
+                        uploadItem.style.backgroundColor = '#f8f9fa';
+                        uploadItem.style.display = 'flex';
+                        uploadItem.style.justifyContent = 'center';
+                        uploadItem.style.alignItems = 'center';
+                        uploadItem.innerHTML = `
+                            <div style="text-align: center; font-size: 0.8rem;">
+                                <i class="material-icons" style="font-size: 2rem;">insert_drive_file</i>
+                                <p style="margin: 0;">${file.name.slice(0, 10)}...</p>
+                            </div>
+                            <button type="button" class="remove-upload" data-index="${index}">&times;</button>
+                        `;
+                        uploadPreview.appendChild(uploadItem);
+                    }
+                });
+            }
+        });
+
+        // Handle remove preview
+        uploadPreview.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-upload')) {
+                e.target.parentElement.remove();
+            }
+        });
+
+        // Handle form submit
+        submitReport.addEventListener('click', () => {
+            // Here you would normally send the form data to a server
+            alert('Gracias por tu denuncia. Será revisada por nuestro equipo.');
+            reportModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('reportForm').reset();
+            uploadPreview.innerHTML = '';
+        });
+
+        // Filter buttons functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Filter logic would go here
+                const filter = button.textContent.trim();
+                
+                // Simple filtering for demonstration
+                if (filter === 'Todos') {
+                    generatePosts(); // Show all posts
+                } else if (filter === 'NEW') {
+                    // Do nothing for the special NEW button
+                } else {
+                    // Filter posts based on button text
+                    const filteredPosts = postsData.filter(post => {
+                        if (filter === 'Redes Sociales' && post.social) return true;
+                        if (filter === 'Cuentas Bancarias' && post.account) return true;
+                        if (filter === 'Números de Teléfono' && post.phone) return true;
+                        if (filter === 'Nombres' && post.name) return true;
+                        if (filter === 'Cédulas' && post.cedula) return true;
+                        return false;
+                    });
+                    
+                    // Clear posts container
+                    postsContainer.innerHTML = '';
+                    
+                    // Generate filtered posts
+                    filteredPosts.forEach(post => {
+                        const postCard = document.createElement('div');
+                        postCard.classList.add('post-card');
+                        postCard.dataset.id = post.id;
+                        
+                        postCard.innerHTML = `
+                            <img src="${post.image}" alt="${post.title}" class="post-image">
+                            <div class="post-content">
+                                <h3 class="post-title">${post.title}</h3>
+                                <div class="post-info">
+                                    <span class="info-tag">${post.type}</span>
+                                    ${post.phone ? `<span class="info-tag">Tel: ${post.phone}</span>` : ''}
+                                    ${post.social ? `<span class="info-tag">${post.social}</span>` : ''}
+                                </div>
+                                <span class="risk-tag">${post.risk}</span>
+                            </div>
+                        `;
+                        
+                        postCard.addEventListener('click', () => openDetailModal(post));
+                        postsContainer.appendChild(postCard);
+                    });
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            if (searchTerm.length > 0) {
+                const searchResults = postsData.filter(post => {
+                    return (
+                        (post.title && post.title.toLowerCase().includes(searchTerm)) ||
+                        (post.name && post.name.toLowerCase().includes(searchTerm)) ||
+                        (post.phone && post.phone.toLowerCase().includes(searchTerm)) ||
+                        (post.account && post.account.toLowerCase().includes(searchTerm)) ||
+                        (post.cedula && post.cedula.toLowerCase().includes(searchTerm)) ||
+                        (post.social && post.social.toLowerCase().includes(searchTerm))
+                    );
+                });
+                
+                // Clear posts container
+                postsContainer.innerHTML = '';
+                
+                if (searchResults.length > 0) {
+                    // Generate search results
+                    searchResults.forEach(post => {
+                        const postCard = document.createElement('div');
+                        postCard.classList.add('post-card');
+                        postCard.dataset.id = post.id;
+                        
+                        postCard.innerHTML = `
+                            <img src="${post.image}" alt="${post.title}" class="post-image">
+                            <div class="post-content">
+                                <h3 class="post-title">${post.title}</h3>
+                                <div class="post-info">
+                                    <span class="info-tag">${post.type}</span>
+                                    ${post.phone ? `<span class="info-tag">Tel: ${post.phone}</span>` : ''}
+                                    ${post.social ? `<span class="info-tag">${post.social}</span>` : ''}
+                                </div>
+                                <span class="risk-tag">${post.risk}</span>
+                            </div>
+                        `;
+                        
+                        postCard.addEventListener('click', () => openDetailModal(post));
+                        postsContainer.appendChild(postCard);
+                    });
+                } else {
+                    // No results message
+                    postsContainer.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                            <h3>No se encontraron resultados para "${searchTerm}"</h3>
+                            <p>Intenta con otros términos de búsqueda</p>
+                        </div>
+                    `;
+                }
+            } else {
+                // If search is empty, show all posts
+                generatePosts();
+            }
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === detailModal) {
+                detailModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            if (e.target === reportModal) {
+                reportModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Initialize posts on page load
+        document.addEventListener('DOMContentLoaded', generatePosts);
+    </script>
+</body>
+</html>
+<style>
+    /* Banner de anuncios */
+.ad-banner {
+    margin: 20px auto;
+    max-width: 980px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+/* Anuncio en Sidebar */
+.ad-sidebar {
+    position: fixed;
+    right: 20px;
+    top: 150px;
+    width: 300px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    display: none; /* Se mostrará solo en escritorio */
+}
+
+/* Mostrar sidebar en pantallas grandes */
+@media(min-width: 1024px) {
+    .ad-sidebar {
+        display: block;
+    }
+}
+
+/* Ejemplo de diferenciación visual para contenido patrocinado */
+.ad-banner::before {
+    content: "Publicidad";
+    font-size: 0.8rem;
+    color: #888;
+    display: block;
+    margin-bottom: 5px;
+}
+
+</style>
